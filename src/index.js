@@ -2,13 +2,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+function getButtonText(){
+    return "button Text";
+}
 // Create a React Component
 const App = () => {
+    // const buttonText = "Submit Button";
     return (
         <div>
             <label className="label" for="name">Enter Name:</label>
             <input id="name" type="text" />
-            <button style={{backgroundColor:'red',}}>Submit</button>
+            <button style={{backgroundColor:'red',}}> { getButtonText() } </button>
         </div>
     );
 };
