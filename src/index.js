@@ -2,17 +2,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function getButtonText(){
-    return "button Text";
+function getTime(){
+    return (new Date().toLocaleString());
 }
+
 // Create a React Component
 const App = () => {
     // const buttonText = "Submit Button";
     return (
         <div>
-            <label className="label" htmlFor="name">Enter Name:</label>
-            <input id="name" type="text" />
-            <button style={{backgroundColor:'red',}}> { getButtonText() } </button>
+            <div>Current Time:</div>
+            <h3>
+                {getTime()}
+            </h3>
         </div>
     );
 };
