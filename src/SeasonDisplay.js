@@ -10,6 +10,11 @@ class SeasonDisplay extends React.Component{
             errorMessage: ''
         };
 
+        
+
+    }
+
+    componentDidMount() {
         navigator.geolocation.getCurrentPosition(
             position => {
                 // we called setState function to update state
@@ -17,33 +22,22 @@ class SeasonDisplay extends React.Component{
             },
             err => this.setState({errorMessage: err.message})
         );
+    }
 
+    componentDidUpdate() {
+        console.log("My compoenent was just updated - it rerendered!");
     }
 
     // React says we have to define render function
     render(){
-                if (this.state.errorMessage && !this.state.lat){
-                    return <div>Error: { this.state.errorMessage} </div>
-                }
-                if (!this.state.errorMessage && this.state.lat){
-                    return <div>Lattitude: { this.state.lat} </div>
-                }
+        if (this.state.errorMessage && !this.state.lat){
+            return <div>Error: { this.state.errorMessage} </div>
+        }
+        if (!this.state.errorMessage && this.state.lat){
+            return <div>Lattitude: { this.state.lat} </div>
+        }
 
-                return <div> Loading! </div>;
-            }
-            // <div>
-            //    Lattitude: { this.state.lat }
-            //    Error: { this.state.errorMessage}
-            // </div>
-
-    // const SeasonDisplay = () => {
-    //     navigator.geolocation.getCurrentPosition(
-    //         position => console.log(position),
-    //         err => console.log(err)
-    //     );
-    //     return(
-    //         <div>Season Card SeasonDisplay</div>
-    //     );
-    // }
+        return <div> Loading! </div>;
+    }
 }
 export default SeasonDisplay;
